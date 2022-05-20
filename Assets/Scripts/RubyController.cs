@@ -13,6 +13,7 @@ public class RubyController : MonoBehaviour
     int currentHealth;
     bool isInvincible;
     float invincibleTimer;
+    
     public GameObject projectilePrefab;
     Rigidbody2D rigidbody2d;
 
@@ -78,7 +79,7 @@ public class RubyController : MonoBehaviour
 
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
 
-        Debug.Log(currentHealth + "/" + maxHealth);
+        UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
     }
 
     void Launch()
